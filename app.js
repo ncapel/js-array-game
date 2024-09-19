@@ -119,6 +119,7 @@ function checkSolution() {
 		if (result === expected) {
 			showResult('Correct! Moving to next level...', 'correct');
 			score += 100 - attempts * 10;
+			updateScoreDisplay();
 			failedAttempts = 0;
 			currentLevel++;
 			setTimeout(() => {
