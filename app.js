@@ -149,6 +149,7 @@ function checkSolution() {
 function showResult(message, type) {
 	const resultDiv = document.getElementById('result');
 	resultDiv.textContent = message;
+	resultDiv.style.visibility = 'visible';
 	if (type === 'correct') {
 		resultDiv.classList.remove('incorrect');
 		resultDiv.classList.add('correct');
@@ -161,6 +162,7 @@ function showResult(message, type) {
 function showHint() {
 	const level = levels[currentLevel];
 	const hintDiv = document.getElementById('hint');
+	hintDiv.style.visibility = 'visible';
 	hintDiv.textContent = `Hint: ${level.hint}`;
 }
 
@@ -168,10 +170,13 @@ function resetGameUI() {
 	document.getElementById('input-method').value = '';
 	document.getElementById('result').textContent = '';
 	document.getElementById('result').classList.remove('correct', 'incorrect');
+	document.getElementById('result').style.visibility = 'hidden';
 	document.getElementById('hint').textContent = '';
+	document.getElementById('hint').style.visibility = 'hidden';
 }
 
 window.onload = function () {
 	displayLevel();
+	resetGameUI();
 	updateScoreDisplay();
 };
